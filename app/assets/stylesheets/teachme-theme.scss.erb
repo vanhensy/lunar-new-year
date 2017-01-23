@@ -1,0 +1,767 @@
+@import 'variables';
+
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+
+body {
+  a {
+    color: $primaryColorBlue;
+    font-family: $fontRegular;
+
+    &:hover {
+      color: #02667F;
+    }
+  }
+  input, p {
+    font-family: $fontRegular;
+  }
+
+}
+
+//----- Margin and Padding ------//
+
+@each $type, $value in $spaceTypes {
+  @each $prop, $size in $spaceSizes {
+    .#{$type}-#{$prop} {
+      &--all {
+        #{$value}: $size $ip;
+      }
+      &--top, &--ends {
+        #{$value}-top: $size $ip; 
+      }
+      &--bottom, &--ends {
+        #{$value}-bottom: $size $ip;
+      }
+      &--left, &--sides {
+        #{$value}-left: $size $ip;
+      }
+      &--right, &--sides {
+        #{$value}-right: $size $ip;
+      }
+    }
+  }
+}
+
+
+.hide {
+  display: none$ip;
+}
+.error-image {
+  max-width: 300px;
+}
+.error-text {
+  color: #34495e$ip;
+  font-weight: 400$ip;
+  margin-top: 0$ip;
+}
+.link-danger {
+  color: #B03060;
+}
+.sign-in-link, .skip-step {
+  text-align: left;
+  a {
+    margin-left: 5px;
+  }
+}
+
+.ui.button {
+  font-family: 'Proxima_regular';
+}
+
+/* -------------------------------- 
+
+Mobile style
+
+-------------------------------- */
+
+
+
+#main_container {
+  min-height: 100vh;
+  padding:0px 1em;
+  .grid.full-height {
+    min-height:100vh;
+    margin-top:0;
+  }
+}
+
+.logo {
+  &-small {
+    height: 15px;  
+  }
+  height: 20px;
+}
+
+.disclamer {
+  text-align: left; 
+  margin-top: 10px; 
+  font-size: 0.7em; 
+  color: #6C7A89;
+}
+.instruction {
+  &-text {
+    text-align: justify;
+    margin-bottom: 1.5em;
+  }  
+  &-link {
+    padding-bottom: 1.4em;
+    font-size:1.1em;
+  }
+}
+
+.ui.tm-blue.button {
+  background:$primaryColorBlue$ip;
+  color: #fff;
+  font-weight: 200;
+  font-family: "Proxima_bold";
+  text-transform: uppercase;
+}
+
+.submit.button {
+    margin: 30px auto 50px auto;
+}
+
+.tm-large {
+    font-size: 1.1em$ip;
+    line-height: 1.4em$ip;
+}
+.tm-card, 
+.tm-segment {
+    border: none$ip;
+    box-shadow: 0px 1px 3px 0px #D4D4D5, 
+                0px 0px 0px 1px rgba(212, 212, 213, 0) 
+                $ip;
+    .tm-header {
+        color: #233142$ip;
+        font-weight: 400$ip;
+        margin-bottom: 0$ip;
+        font-family: 'Proxima_regular';
+    }
+}
+
+
+.tm-form-header {
+    color: #233142$ip;
+    font-weight: 400$ip;
+}
+
+.tm-deep-shadow {
+    box-shadow: 0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07)$ip;
+}
+
+.tm-dropdown {
+    background: #F9FAFC$ip;
+    font-family: 'Proxima_regular'$ip;
+    padding-top: 1em$ip;
+    padding-bottom: 1em$ip;
+    border-color:#EEF0F3$ip;
+    .dropdown.icon {
+      line-height: 1em$ip;
+      color:#95989A$ip;
+      font-size: 1.25em$ip;
+    }
+    .text {
+      color: #95989A$ip;
+      font-size: 0.9em$ip;
+    }
+}
+
+.tm-dropdown.active {
+  background: #FFFFFF$ip;
+  border: 1px solid $primaryColorBlue$ip;
+}
+.tm-dropdown.ui.dropdown .menu,
+.tm-dropdown.active.dropdown:hover .menu {
+  border: 1px solid $primaryColorBlue$ip;
+  max-height: 9.3em$ip;
+  .item {
+    padding-top: 1.1em$ip;
+    padding-bottom: 1.1em$ip;
+    font-size: 0.9em; 
+    line-height: 1.1em;
+    color: #95989A$ip;
+  } 
+}
+
+.tm-dropdown.search {
+  padding-bottom: 0.9em$ip;
+  padding-top: 0.9em$ip;
+  .text {
+    font-size: 0.8em$ip;
+  }
+  .message {
+    font-size: 0.8em$ip; 
+  }
+  input.search {
+    font-size: 0.8em$ip; 
+    padding-bottom: 1.1em$ip;
+    padding-top: 1.1em$ip;
+  }
+  .default.text {
+    font-size: 0.8em$ip;
+  }
+  &:hover .menu {
+    .item {
+      font-size: 0.8em;
+    }
+  }
+}
+
+.ui.form.tm-form {
+  input, 
+  textarea {
+    @include tm_input;
+  }
+  label {
+    font-family: $fontRegular;
+  }
+  .icon.input {
+    i {
+      color: #9E9E9E$ip;
+    }
+  }
+}
+
+#admin-login-panel .icon.input {
+  i {
+    &:after {
+        content:'';
+        width: 1px;
+        height: 1em;
+        left: 80%;
+        background: #d4d3d3;
+      }
+  }
+}
+
+.tm-input  {
+    font-family: 'Proxima_regular'$ip;
+    background: #F9FAFC$ip;
+    border-color:#EEF0F3$ip;
+    font-size: 14px$ip;
+    padding-top: 1em$ip;
+    padding-bottom: 1em$ip;
+    &:focus {
+        background: #FFFFFF$ip;
+        border-color:$primaryColorBlue$ip;
+    }
+}
+
+.tm-button-shadow {
+  box-shadow: rgba(23,43,99,0.26) 0 7px 42px$ip;
+}
+
+.ui.facebook.button {
+    background-color: #3B5998;
+    color: #FFF;
+    text-shadow: none;
+    background-image: none;
+    font-weight: 200;
+}
+.selection-icon {
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    img {
+        max-width:35px;
+    }
+}
+.icon-explainer {
+    color: #95989A;
+    margin-top: 5px$ip;
+}
+.selectable.card,
+.unselectable.card {
+  background-color: #F9FAFC$ip;
+  border: 1px solid #EEF0F3$ip;
+  box-shadow:none$ip;
+  .content {
+    padding: 0.8em 1em$ip;
+  }
+  &.active {
+    border: 1px solid$ip;
+    border-color: $primaryColorBlue$ip;
+    box-shadow: none$ip;
+    background-color:#FFFFFF$ip;
+  }
+}
+
+
+.selectable.card.active:before {
+    content: "\F134";
+    display: inline-block;
+    opacity: 1;
+    margin: 0em 0.25rem 0em 0em;
+    width: 1.18em;
+    height: 1em;
+    font-family: 'Material Design Icons';
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    text-align: center;
+    speak: none;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    position: absolute;
+    right:0;
+    top:5px;
+    font-size: 1.2em;
+    color: $primaryColorBlue;
+    text-align: left;
+}
+
+.question-text {
+  margin-bottom:2em;
+  &:before {
+    content: "\f101";
+    display: inline-block;
+    opacity: 1;
+    margin: 0em 0.25rem 0em 0em;
+    width: 1em;
+    height: 1em;
+    font-family: 'Icons';
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    text-align: center;
+    speak: none;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    left:0;
+    font-size: 1.3em;
+    color: #A5DEF1;
+    text-align: left;
+  }
+}
+
+
+
+
+// noUISider style
+
+.noUi-target {
+  border-radius: 4px;
+  border: none$ip;
+}
+.noUi-background {
+  background: #EEF0F3;
+}
+.noUi-horizontal {
+  height: 5px;
+}
+.noUi-horizontal .noUi-handle {
+  width: 32px;
+  height: 32px;
+  left: -15px;
+  top: -15px;
+}
+.noUi-handle {
+  border: none;
+  border-radius: 50%;
+  background: $primaryColorBlue;
+  cursor: default;
+  box-shadow: 0 0 10px rgba(81, 203, 238, 1);
+}
+.noUi-handle:before, .noUi-handle:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background: #A5DEF1;
+  left: 10px;
+  top: 10px;
+  border-radius: 50%;
+}
+.noUi-connect {
+  background: #A5DEF1;
+  box-shadow: none;
+}
+.noUi-tooltip {
+  color: #000;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Proxima_regular';
+  border:none;
+  background: transparent;
+  line-height: 1em; 
+}
+
+
+
+
+
+
+.ui.multiple.dropdown {
+    padding: 0.6em$ip;
+    .dropdown.icon {
+        line-height: 0.5em$ip;
+        font-size: 1.5em$ip;
+    }
+}
+
+.support-link {
+  color:#A5DEF1;
+}
+.support-link:hover {
+  color:$primaryColorBlue;
+}
+.tm-label {
+  background: #F9FAFC$ip;
+}
+
+
+#landing_container {
+  height: 100vh;
+  background-color: #00A6CF;
+  background-image: url('<%= asset_path 'landingpage_bottom_bg.png' %>');
+  background-position: center bottom;
+  background-size: 500px;
+  background-repeat: repeat-x;
+  min-height: 100vh;
+  padding:0px 1em;
+  .grid {
+    margin: 0$ip;
+  }
+  .full-height {
+    min-height: 100vh;
+  }
+  .logo {
+    margin: 20px auto;
+  }
+  p {
+    color: #FFFFFF;
+    text-align: justify;
+    padding: 0 15px;
+  }
+  #cta_button {
+    padding: 50px 0px;
+    .column {
+      padding-bottom: 5px$ip;
+    }
+    a {
+      box-shadow: 0 2px 6px 0 rgba(80, 80, 80, 0.4);
+      font-family : 'Proxima_regular';
+    }
+    .button:hover {
+      box-shadow: 0 8px 20px 0 rgba(80, 80, 80, 0.4);
+    }
+    .quitely-white {
+      background-color: #fff;
+      color: #00A6CF;
+    }
+    .luxury-blue {
+      background-color: #006680; 
+      color: #fff;
+    }
+  }
+  #footer {
+    position: fixed; 
+    bottom: 5px;
+    a {
+      font-size: 12px;
+      font-family: 'Proxima_bold';
+      color: #fff;
+      margin-bottom:15px;
+    }
+  }
+}
+
+.tm-header-menu { 
+  font-size: 25px;
+  line-height: 20px;
+  color: #A5DEF1;
+  height: 20px;
+  margin-top:60px;
+  margin-bottom: 50px;
+  .grid {
+    min-height:auto!important;
+    .column {
+      padding-top: 0!important;
+      padding-bottom: 0!important;
+    }
+    .none-padding {
+      padding: 0!important;
+    }
+    i {
+      font-size: 1.25em;
+    }
+ }
+}
+
+.schedule-panel {
+  .date {
+    font-size: 1.5em;
+    line-height: 2.7em;
+    border-right: 1px solid #f2f2f2;
+  }
+  .row {
+    padding-bottom: 0!important;
+  }
+  .timetable-slot {
+    height: 4.2em;
+    .add-slot-text {
+      color: #8F999F;
+      line-height: 4.2em;
+    }
+  }
+  .grid {
+    min-height: auto!important;
+  }
+  .ui.two.cards .card {
+    width: calc(50% - 1.5em)!important;
+  }
+  .slot_section_label {
+    font-size: 0.8em;
+    color: #233142;
+    font-family: 'Proxima_regular';
+    padding: 5px 10px;
+  }
+  .slot-time {
+    font-size:1.3em;
+    color:#95989A;
+  }
+}
+
+
+
+// Theme for navbar
+
+.dashboard.menu {
+  background: #36506C$ip;
+}
+.ui.fixed.bottom.menu {
+    top: auto;
+    bottom: 0$ip;
+    span {
+      font-size: 10px;
+    }
+    .item {
+      font-size: 10px$ip;
+      height: 60px;
+    }
+    .item.active {
+      color: $primaryColorBlue$ip;
+      background: #36506C;
+    }
+    .item.special {
+      .icon-holder {
+        width: 70px;
+        height: 70px;
+        margin-top: -40px;
+        border-radius: 50%;
+        background: $primaryColorBlue;
+        text-align: center;
+        i {
+          line-height: 70px;
+          font-size: 30px;
+          margin-right: -2.5px$ip;
+        }
+      }
+    }
+}
+  
+.ui.labeled.icon.menu.navbar .item > .icon:not(.dropdown) {
+  margin: 0 0 3px 0$ip;
+  display: block;
+  font-size: 22px$ip;
+}
+
+#dashboard_container {
+  .tm-divider-header {
+    font-size: 1.25em;
+    margin: 30px auto;
+  }
+}
+
+#history-cards,
+#notification-cards,
+#trial-session-detail-card {
+  .content {
+    padding: 1em 1.5em$ip;
+    h4 {
+      font-size: 1em; 
+      font-family: 'Proxima_regular';
+    }
+  }
+  .history-time {
+    font-size: 0.8em;
+    font-family: 'Proxima_regular';
+  }
+  .tutor-info {
+    .tutor-name {
+      font-size: 0.9em;
+      margin-bottom: 0.25em;
+      color: #233142
+    }
+    .tutor-level {
+      font-size: 0.8em;
+      color: #8F999F;
+      margin-bottom: 0.25em;
+      line-height: 0.8em;
+    }
+    .tm-star-label {
+      margin-left: 0;
+      font-size: 0.6em;
+    }
+  }
+  .session-detail {
+    margin-top: 0.5em;
+    p {
+      font-size: 0.85em;
+      font-family: 'Proxima_regular';
+      color: #233142;
+      margin-bottom: 0.20em;
+    }
+  }
+  .profile-picture {
+
+  }
+}
+#notification-cards {
+  .notify-subject {
+    font-size: 0.9em$ip;
+    line-height: 1.2em$ip;
+    font-family: "Proxima_bold"$ip;
+    margin-bottom: 0.25em;
+    color: #233142;
+    font-weight: bold;
+    letter-spacing: 0;
+  }
+  .notify-sender {
+    font-size: 0.8em$ip;
+    font-family: "Proxima_regular"$ip;
+    margin-bottom: 0.25em;
+    color: #8F999F;
+  }
+  .notify-content {
+    p {
+      font-size: 0.8em$ip;
+      font-family: "Proxima_regular"$ip;
+      text-align: justify;
+      padding-right: 2em;
+      position: relative;
+    }
+    p:before {
+      position: absolute;
+      right: 0;
+      top:50%;
+      margin-top: -0.45em;
+      font-size: 1.8em;
+      color: #8F999F;
+      text-align: right;
+      vertical-align: -50%;
+      @include i_before("\f105","Icons");
+    }
+  }
+  .profile-picture {
+    border-radius: 0.25em;
+  }
+}
+
+.tutor-profile-picture {
+  border-radius: 0.25em;
+}
+
+
+.right-side {
+  background-color: #59d7f7;
+  height: 100vh;
+  background-image: url('<%= asset_path('temp-background.png') %>');
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.left-side {
+  .content {
+    padding: 0 3em;
+  }
+}
+
+.tm-header {
+  font-family: 'Proxima_regular';
+}
+
+/* -------------------------------- 
+
+Tablet style
+
+-------------------------------- */
+
+@media only screen and (min-width: 768px) {
+
+}
+
+
+
+/* -------------------------------- 
+
+Desktop style
+
+-------------------------------- */
+
+@media only screen and (min-width: 1170px) {
+
+}
+
+
+
+
+/* -------------------------------- 
+
+External resources
+
+-------------------------------- */
+
+
+// Tiny modal for semantic-ui
+
+@media only screen and (max-width: 767px) {
+  .ui.tiny.modal {
+    width: 84%;
+    margin: 0em 0em 0em -42%;
+  }
+  .ui.container {
+    &.no-gutter--left {
+      margin-left: 0!important;
+    }
+    &.no-gutter--right {
+      margin-right: 0!important;
+    }
+  }
+  .ui.fluid.container {
+    margin:0$ip;
+  }
+  .ui.container {
+    padding-left: 1em$ip;
+    padding-right: 1em$ip;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.tiny.modal {
+    width: 50%;
+    margin: 0em 0em 0em -25%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.tiny.modal {
+    width: 200px;
+    margin: 0em 0em 0em -100px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.tiny.modal {
+    width: 300px;
+    margin: 0em 0em 0em -150px;
+  }
+}

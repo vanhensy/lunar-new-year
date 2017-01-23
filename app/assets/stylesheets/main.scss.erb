@@ -1,0 +1,52 @@
+body {
+	background: #fdfcfc;
+}
+
+#main_container {
+	max-width: 720px!important;
+}
+
+
+#preview-button {
+	margin-top: 120px!important;
+}
+
+#action-buttons {
+	margin-top: 40px!important;	
+}
+
+#card-container,
+#canvas-container {
+	width: 720px; 
+	height: 400px;
+	background: url('<%= asset_path 'greeting-card-1.jpg' %>');
+	background-size: contain;
+	border-radius: 10px;
+	#card-canvas {
+		border-radius: 10px;
+	}
+}
+
+#content-form {
+	margin-top: -360px;
+	text-align: left!important;
+	max-width: 560px;
+	margin-left:80px;
+	input,
+	textarea {
+		background: transparent!important;
+		border-style: dashed;
+		resize: none;
+	}
+	label {
+		font-family: 'Proxima_regular';
+		color: #919191!important;
+		margin-bottom: 1em;
+	}
+}
+
+.tm-button {
+	font-family: 'Proxima_bold'!important;
+	text-transform: uppercase!important;
+	min-width: 200px!important;
+}

@@ -1,0 +1,23 @@
+message  = "";
+receiver = "";
+sender   = "";
+
+function setup() {
+	canvas 	 = createCanvas(720, 400);
+  bg_image = loadImage('<%= asset_path "greeting-card-1.jpg" %>');
+  canvas.id("card-canvas");
+  canvas.parent('canvas-container');
+}
+
+function draw() {
+ 	background(bg_image);
+ 	fill(35,49,66);
+ 	textSize(16);
+  textFont("Proxima_bold");
+ 	text(receiver, 70, 80, 560, 50);
+  textFont("Proxima_regular");
+ 	text(message, 80, 125, 560, 160);
+ 	fill(143,153,159);
+ 	textFont("Proxima_regular");
+ 	text(sender, 80, 320, 560, 50);
+}

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender: MyString
+  receiver: MyString
+  template_id: 1
+  message: MyText
+  image_url: MyString
+
+two:
+  sender: MyString
+  receiver: MyString
+  template_id: 1
+  message: MyText
+  image_url: MyString
