@@ -1,10 +1,10 @@
 class CardsController < ApplicationController
-	before_action :set_card
+	before_action :set_card, only: [:show]
 	layout "card"
 
   def create
   	card = Card.create card_param
-  	redirect_to greeting_path
+  	redirect_to "/cards/#{card.slug}"
   end
 
   def show
