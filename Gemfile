@@ -66,3 +66,6 @@ end
 
 
 gem 'friendly_id'
+
+gem 'dotenv'
+gem 'httparty', '~> 0.14.0'

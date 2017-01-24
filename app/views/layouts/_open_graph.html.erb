@@ -1,8 +1,8 @@
 <!-- Open Graph data -->
-<meta property="og:title" content="Cùng TeachMe gửi lời mừng xuân" />
+<meta property="og:title" content="<%= "#{@card.sender} gửi lời chúc tới #{@card.receiver}"   %>" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://teachme.edu.vn/" />
 <meta property="og:image" content="<%= @card.image_url %>" />
-<meta property="og:description" content="Cùng TeachMe gửi lời yêu thương đến người thân nhân dịp Tết 2017" />
+<meta property="og:description" content="<%= @card.message %>" />
 <meta property="og:site_name" content="TeachMe Greeting Lunar New Year" />
 
