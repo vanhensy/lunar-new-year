@@ -4,6 +4,8 @@ class CardsController < ApplicationController
 
   def create
   	card = Card.create card_param
+    image_link = ImageUploader.send(card.image_url)
+    card.update_attributes(imgur: image_link)
   	redirect_to "/cards/#{card.slug}"
   end
 

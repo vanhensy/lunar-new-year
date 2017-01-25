@@ -62,6 +62,7 @@
 		 domtoimage.toPng(document.getElementById("card-canvas"))
     	.then(function (dataUrl) {
     		$("#image-url-input").val(dataUrl);
+    		console.log(dataUrl);
     		$("#content-form").submit();
     	});
 	});
