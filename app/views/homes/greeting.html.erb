@@ -4,7 +4,7 @@
 				<div id="canvas-container" class="tm-deep-shadow">
 				</div>
 				<%= form_tag cards_path, 
-										 class:"ui form", 
+										 class:"ui small form", 
 										 id:"content-form",
 										 method:"post" do %>
 				  <div class="two fields">
@@ -19,7 +19,7 @@
 					</div>
 				  <div class="field">
 				    <label>Lời chúc của bạn:</label>
-				    <textarea rows="8" name="card[message]" id="content-input"></textarea>
+				    <textarea rows="6" name="card[message]" id="content-input"></textarea>
 				  </div>
 				  <input type="hidden" name="card[image_url]" id="image-url-input">
 				  <input type="hidden" name="card[template_id]" value="1">
