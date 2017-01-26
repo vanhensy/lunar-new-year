@@ -47,6 +47,7 @@ function setup() {
 	canvas 	 = createCanvas(720, 400);
   bg_image = loadImage('<%= asset_path "card-1.gif" %>');
   canvas.id("card-canvas");
+  canvas.class("tm-deep-shadow");
   canvas.parent('canvas-container');
 }
 
