@@ -4,7 +4,7 @@ sender   = "";
 
 function setup() {
 	canvas 	 = createCanvas(720, 400);
-  bg_image = loadImage('<%= asset_path "card-1.gif" %>');
+  bg_image = loadImage('<%= asset_path "card-2.gif" %>');
   canvas.id("card-canvas");
   canvas.parent('canvas-container');
 }
@@ -17,7 +17,7 @@ function draw() {
  	text(receiver, 160, 150, 400, 50);
  	textSize(14);
   textFont("Proxima_regular");
- 	text(message, 160, 180, 450, 160);
+ 	text(message, 160, 190, 435, 160);
  	fill(248,215,138);
  	textFont("Proxima_regular");
  	text(sender, 160, 320, 400, 50);
