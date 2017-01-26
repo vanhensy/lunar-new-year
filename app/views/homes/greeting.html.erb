@@ -59,12 +59,9 @@
     redraw();
 	});
 	$("#send-button").click(function() {
-		 domtoimage.toPng(document.getElementById("card-canvas"))
-    	.then(function (dataUrl) {
-    		$("#image-url-input").val(dataUrl);
-    		console.log(dataUrl);
-    		$("#content-form").submit();
-    	});
+		data = document.getElementById("card-canvas").toDataURL();
+		$("#image-url-input").val(data);
+		$("#content-form").submit();
 	});
 	function toggleState(state) {
 		if (state) {

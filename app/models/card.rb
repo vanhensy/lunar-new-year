@@ -4,7 +4,7 @@ class Card < ApplicationRecord
   def slug_candidates
     [
       :sender,
-      [:sender, :id],
+      [:sender, :receiver],
       [:sender, :receiver, :id]
     ]
   end
