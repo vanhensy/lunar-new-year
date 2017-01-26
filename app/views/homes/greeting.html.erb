@@ -1,6 +1,17 @@
 <div class="ui container" id="main_container">
 	<div class="ui center aligned middle aligned stackable grid full-height">
+		
 		<div class="sixteen wide column">
+				<div id="card-selection">
+					<div class="ui six cards">
+						<div class="card active" data-template="1">
+							<%= image_tag 'card-1' %>
+						</div>
+						<div class="card" data-template="2">
+							<%= image_tag 'card-2' %>
+						</div>
+					</div>
+				</div>
 				<div id="canvas-container" class="tm-deep-shadow">
 				</div>
 				<%= form_tag cards_path, 
@@ -24,7 +35,7 @@
 				  <input type="hidden" name="card[image_url]" id="image-url-input">
 				  <input type="hidden" name="card[template_id]" value="1">
 				<% end %>
-				<button class="ui positive tm-deep-shadow button tm-button"
+				<button class="ui basic tm-deep-shadow button tm-button"
 								id="preview-button">
 					Xem trước
 				</button>
@@ -43,33 +54,3 @@
 		</div>
 	</div>
 </div>
-
-
-<script>
-	$("#preview-button").click(function() {
-		sender   = "From: " + $("#sender-input").val();
-		receiver = "To: " + $("#receiver-input").val();
-		message  = $("#content-input").val()
-		toggleState(true);
-    redraw(); 
-	});
-	$("#back-button").click(function() {
-		sender =receiver = message = "";
-		toggleState(false);
-    redraw();
-	});
-	$("#send-button").click(function() {
-		data = document.getElementById("card-canvas").toDataURL();
-		$("#image-url-input").val(data);
-		$("#content-form").submit();
-	});
-	function toggleState(state) {
-		if (state) {
-			$("#content-form, #preview-button").hide();
-			$("#back-button, #send-button").show();
-		} else {
-			$("#content-form, #preview-button").show();
-			$("#back-button, #send-button").hide();
-		}
-	}
-</script>

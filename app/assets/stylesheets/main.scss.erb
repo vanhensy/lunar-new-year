@@ -23,11 +23,20 @@ body {
 #canvas-container {
 	width: 720px; 
 	height: 400px;
-	// background: url('<%= asset_path 'card-1.svg' %>');
 	background-size: cover;
-	border-radius: 10px;
-	#card-canvas {
-		border-radius: 10px;
+}
+
+#card-selection {
+	img {
+		height: 60px;
+	}
+	margin-bottom: 1em;
+	.card {
+		border: 2px solid #FFF;
+		cursor: pointer;
+	}
+	.active {
+		border: 2px solid yellow;
 	}
 }
 
