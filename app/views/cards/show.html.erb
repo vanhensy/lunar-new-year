@@ -4,13 +4,16 @@
 				<div id="card-container" class="tm-deep-shadow">
 					<%= image_tag @card.imgur, class:"ui image" %>
 				</div>
-				<button class="ui very basic icon right floated button" id="download-button"> 
+				<button class="ui tm-blue icon button" 
+								id="fb-send-button"
+								data-href="https://teachme.edu.vn/cards/<%= @card.slug %>">
+					<i class="facebook icon"></i>
+					Gửi qua Messenger
+				</button>
+				<button class="ui icon button" 
+								id="download-button"> 
 					<i class="download icon"></i>
 					Download
-				</button>
-				<button class="ui very basic icon right floated button" id="download-button"> 
-					<i class="facebook icon"></i>
-					Share on Facebook
 				</button>
 		</div>
 	</div>
