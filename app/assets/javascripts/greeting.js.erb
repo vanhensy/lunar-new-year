@@ -27,7 +27,11 @@ jQuery(document).ready(function($){
 		$("#send-button").click(function() {
 			data = document.getElementById("card-canvas").toDataURL();
 			$("#image-url-input").val(data);
-			$("#content-form").submit();
+			if (template == 1 || template == 2) {
+				$("#content-form-left").submit();
+			} else {
+				$("#content-form-right").submit();
+			}
 		});
 
 		// Fetch images path and save to array
