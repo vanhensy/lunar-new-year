@@ -1,0 +1,139 @@
+jQuery(document).ready(function($){
+
+	// Fetch templates data
+
+	getTemplateData();
+
+	// Handle buttons click
+
+	$("#preview-button").click(function() {
+			if (template == 1 || template == 2) {
+				sender   = "Người gửi: " + $("#content-form-left .content-sender").val();
+				receiver = "Gửi đến: " + $("#content-form-left .content-receiver").val();
+				message  = $("#content-form-left .content-message").val()
+			} else {
+				sender   = "Người gửi: " + $("#content-form-right .content-sender").val();
+				receiver = "Gửi đến: " + $("#content-form-right .content-receiver").val();
+				message  = $("#content-form-right .content-message").val()
+			}
+			toggleState(true);
+	    redraw(); 
+		});
+		$("#back-button").click(function() {
+			sender = receiver = message = "";
+			toggleState(false);
+	    redraw();
+		});
+		$("#send-button").click(function() {
+			data = document.getElementById("card-canvas").toDataURL();
+			$("#image-url-input").val(data);
+			$("#content-form").submit();
+		});
+
+		// Fetch images path and save to array
+
+		templates_path = []
+
+		<% 6.times do |index| %>
+			templates_path.push("<%= asset_path("card-#{index+1}") %>")
+		<% end %> 
+
+		// Update canvas when card has been click
+
+		$("#card-selection .card").click(function() {
+
+			// reset form
+			
+			sender = receiver = message = "";
+			toggleState(false);
+	    redraw();
+
+			// toggle class of card
+			
+			$("#card-selection .card").removeClass("active");
+			$(this).addClass("active");
+			template = $(this).data("template");
+
+			if (template == 1 || template == 2) {
+				$("#content-form-right").hide()
+				$("#content-form-left").show()
+			} else {
+				$("#content-form-left").hide()
+				$("#content-form-right").show()
+			}
+
+			$.each(templates_path, function(index, value) {
+				if (template == index + 1) {
+					bg_image = loadImage(value);
+				} 
+			})
+			redraw(background(bg_image));
+		});
+
+		function toggleState(state) {
+			if (state) {
+				$("#content-form-left, #content-form-right, #preview-button").hide();
+				$("#back-button, #send-button").show();
+			} else {
+				if (template == 1 || template == 2) {
+					$("#content-form-left, #preview-button").show();
+				} else {
+					$("#content-form-right, #preview-button").show();
+				}
+				$("#back-button, #send-button").hide();
+			}
+		}		
+
+});
+
+message  = "";
+receiver = "";
+sender   = "";
+template = 1 ; 
+
+function setup() {
+	canvas 	 = createCanvas(720, 400);
+  bg_image = loadImage('<%= asset_path "card-1.gif" %>');
+  canvas.id("card-canvas");
+  canvas.class("tm-deep-shadow");
+  canvas.parent('canvas-container');
+}
+
+function draw() {
+	background(bg_image);
+	data = Cookies.getJSON("template_data");
+	card_data = data["card-" + template.toString()];
+	fill(card_data["receiver_color"]);
+ 	textSize(card_data["receiver_size"]);
+  textFont(card_data["receiver_font"]);
+ 	text(receiver, 
+ 			 card_data["receiver_left"], 
+ 			 card_data["receiver_top"], 
+ 			 card_data["receiver_box"],
+ 			 card_data["receiver_height"]);
+ 	fill(card_data["message_color"]);
+  textFont(card_data["message_font"]);
+ 	text(message, 
+ 			 card_data["message_left"], 
+ 			 card_data["message_top"], 
+ 			 card_data["message_box"], 
+ 			 card_data["message_height"]);
+ 	fill(card_data["sender_color"]);
+ 	textFont(card_data["sender_font"]);
+ 	text(sender,
+ 			 card_data["sender_left"], 
+ 			 card_data["sender_top"], 
+ 			 card_data["sender_box"], 
+ 			 card_data["sender_height"]);
+}
+
+function getTemplateData() {
+	$.getJSON('/template-data.json', function() {})
+  .done(function(fetched_data) {
+    Cookies.set("template_data", fetched_data);
+  })
+  .fail(function(e, status, error){
+    console.error("Error:" + status + "||" + error);
+  });
+}
+

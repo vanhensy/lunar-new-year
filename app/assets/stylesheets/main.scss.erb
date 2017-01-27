@@ -35,7 +35,7 @@ body {
 	img {
 		height: 60px;
 	}
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 	.card {
 		border: 2px solid #FFF;
 		cursor: pointer;
@@ -45,11 +45,23 @@ body {
 	}
 }
 
-#content-form {
+#content-form-left {
 	margin-top: -280px;
 	text-align: left!important;
 	max-width: 400px;
 	margin-left:160px;
+}
+
+#content-form-right {
+		position: absolute;
+		margin-top: -350px;
+		text-align: left!important;
+		width: 275px;
+		margin-left:360px;	
+}
+
+#content-form-left,
+#content-form-right {
 	input,
 	textarea {
 		background: transparent!important;
@@ -63,6 +75,18 @@ body {
 		color: #FFF!important;
 		margin-bottom: 0.5em;
 	}
+}
+
+#content-form-right {
+	label {
+		color: #000!important;
+	}
+	input,
+	textarea {
+		border-color: #000;
+		resize: none;
+		color: #000;	
+	}	
 }
 
 .tm-button {
