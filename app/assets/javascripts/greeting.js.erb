@@ -26,10 +26,12 @@ jQuery(document).ready(function($){
 		});
 		$("#send-button").click(function() {
 			data = document.getElementById("card-canvas").toDataURL();
-			$("#image-url-input").val(data);
+			
 			if (template == 1 || template == 2) {
+				$("#content-form-left .image-url-input").val(data);
 				$("#content-form-left").submit();
 			} else {
+				$("#content-form-right .image-url-input").val(data);
 				$("#content-form-right").submit();
 			}
 		});
