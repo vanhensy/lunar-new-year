@@ -5,10 +5,14 @@
 					<%= image_tag @card.imgur, class:"ui image" %>
 				</div>
 				<button class="ui tm-blue icon button" 
-								id="fb-send-button"
-								data-href="https://teachme.edu.vn/cards/<%= @card.slug %>">
+								id="fb-send-button">
 					<i class="facebook icon"></i>
 					Gửi qua Messenger
+				</button>
+				<button class="ui blue icon button" 
+								id="fb-share-button">
+					<i class="facebook icon"></i>
+					Chia sẻ qua Facebook
 				</button>
 				<button class="ui icon button" 
 								id="download-button"> 

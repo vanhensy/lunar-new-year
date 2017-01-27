@@ -52,6 +52,21 @@ jQuery(document).ready(function($){
 			);
 		});
 
+		$("#fb-share-button").click(function() {
+			params = {
+				method: "share",
+				href: window.location.href
+			}
+			FB.ui(params, function(response) {
+			    if (response && !response.error_message) {
+			      alert('Posting completed.');
+			    } else {
+			      alert('Error while posting.');
+			    }
+			  }
+			);
+		});
+
 		// Fetch images path and save to array
 
 		templates_path = []
