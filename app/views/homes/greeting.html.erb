@@ -1,6 +1,6 @@
 <div class="ui container p-none--sides" id="main_container">
 	<div class="ui center aligned middle aligned stackable grid full-height">
-		
+
 		<div class="sixteen wide column">
 				<div id="card-selection">
 					<div class="ui six cards">
@@ -13,8 +13,8 @@
 				</div>
 				<div id="canvas-container" class="tm-deep-shadow">
 				</div>
-				<%= form_tag cards_path, 
-										 class:"ui small form", 
+				<%= form_tag cards_path,
+										 class:"ui small form",
 										 id:"content-form-left",
 										 method:"post" do %>
 				  <div class="two fields">
@@ -34,8 +34,8 @@
 				  <input type="hidden" name="card[image_url]" class="image-url-input">
 				  <input type="hidden" name="card[template_id]" class="template-id">
 				<% end %>
-				<%= form_tag cards_path, 
-										 class:"ui small form", 
+				<%= form_tag cards_path,
+										 class:"ui small form",
 										 id:"content-form-right",
 										 style: "display:none",
 										 method:"post" do %>

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  root "homes#index"
-  get '/greeting', to: "homes#greeting"
+  root "homes#greeting"
+  # get '/greeting', to: "homes#"
   resource :cards, only: [:create, :show] do
-  	collection do 
+  	collection do
   		get "/:friendly_id", to: "cards#show"
   	end
   end

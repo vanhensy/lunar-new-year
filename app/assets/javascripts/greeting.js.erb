@@ -17,7 +17,7 @@ jQuery(document).ready(function($){
 				message  = $("#content-form-right .content-message").val()
 			}
 			toggleState(true);
-	    redraw(); 
+	    redraw();
 		});
 		$("#back-button").click(function() {
 			sender = receiver = message = "";
@@ -26,7 +26,7 @@ jQuery(document).ready(function($){
 		});
 		$("#send-button").click(function() {
 			data = document.getElementById("card-canvas").toDataURL();
-			
+
 			if (template == 1 || template == 2) {
 				$("#content-form-left .image-url-input").val(data);
 				$("#content-form-left").submit();
@@ -73,20 +73,20 @@ jQuery(document).ready(function($){
 
 		<% 6.times do |index| %>
 			templates_path.push("<%= asset_path("card-#{index+1}") %>")
-		<% end %> 
+		<% end %>
 
 		// Update canvas when card has been click
 
 		$("#card-selection .card").click(function() {
 
 			// reset form
-			
+
 			sender = receiver = message = "";
 			toggleState(false);
 	    redraw();
 
 			// toggle class of card
-			
+
 			$("#card-selection .card").removeClass("active");
 			$(this).addClass("active");
 			template = $(this).data("template");
@@ -102,7 +102,7 @@ jQuery(document).ready(function($){
 			$.each(templates_path, function(index, value) {
 				if (template == index + 1) {
 					bg_image = loadImage(value);
-				} 
+				}
 			})
 			redraw(background(bg_image));
 		});
@@ -119,14 +119,14 @@ jQuery(document).ready(function($){
 				}
 				$("#back-button, #send-button").hide();
 			}
-		}		
+		}
 
 });
 
 message  = "";
 receiver = "";
 sender   = "";
-template = 1 ; 
+template = 1 ;
 
 function setup() {
 	canvas 	 = createCanvas(720, 400);
@@ -143,24 +143,24 @@ function draw() {
 	fill(card_data["receiver_color"]);
  	textSize(card_data["receiver_size"]);
   textFont(card_data["receiver_font"]);
- 	text(receiver, 
- 			 card_data["receiver_left"], 
- 			 card_data["receiver_top"], 
+ 	text(receiver,
+ 			 card_data["receiver_left"],
+ 			 card_data["receiver_top"],
  			 card_data["receiver_box"],
  			 card_data["receiver_height"]);
  	fill(card_data["message_color"]);
   textFont(card_data["message_font"]);
- 	text(message, 
- 			 card_data["message_left"], 
- 			 card_data["message_top"], 
- 			 card_data["message_box"], 
+ 	text(message,
+ 			 card_data["message_left"],
+ 			 card_data["message_top"],
+ 			 card_data["message_box"],
  			 card_data["message_height"]);
  	fill(card_data["sender_color"]);
  	textFont(card_data["sender_font"]);
  	text(sender,
- 			 card_data["sender_left"], 
- 			 card_data["sender_top"], 
- 			 card_data["sender_box"], 
+ 			 card_data["sender_left"],
+ 			 card_data["sender_top"],
+ 			 card_data["sender_box"],
  			 card_data["sender_height"]);
 }
 

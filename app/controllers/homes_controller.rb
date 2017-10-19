@@ -2,7 +2,7 @@ class HomesController < ApplicationController
   def index
   end
 
-  def greeting  	
+  def greeting
   	@desktop_templates = []
   	@mobile_templates = []
   	6.times do |index|

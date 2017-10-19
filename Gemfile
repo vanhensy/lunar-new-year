@@ -61,7 +61,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-semantic'
-  gem 'rails-assets-dom-to-image'
 end
 
 

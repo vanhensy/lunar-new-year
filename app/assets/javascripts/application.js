@@ -4,4 +4,3 @@
 //= require semantic
 //= require greeting
 //= require cookies
-
