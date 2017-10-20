@@ -99,44 +99,6 @@ jQuery(document).ready(function($){
 
 });
 
-message  = "";
-receiver = "";
-sender   = "";
-template = 1 ;
-function setup() {
-	canvas 	 = createCanvas(720, 400);
-  bg_image = loadImage('<%= asset_path "card-1.png" %>');
-  canvas.id("card-canvas");
-  canvas.parent('canvas-container');
-}
-function draw() {
-	background(bg_image);
-	data = Cookies.getJSON("template_data");
-	card_data = data["card-" + template.toString()];
-	fill(card_data["receiver_color"]);
- 	textSize(card_data["receiver_size"]);
-  textFont(card_data["receiver_font"]);
- 	text(receiver,
- 			 card_data["receiver_left"],
- 			 card_data["receiver_top"],
- 			 card_data["receiver_box"],
- 			 card_data["receiver_height"]);
- 	fill(card_data["message_color"]);
-  textFont(card_data["message_font"]);
- 	text(message,
- 			 card_data["message_left"],
- 			 card_data["message_top"],
- 			 card_data["message_box"],
- 			 card_data["message_height"]);
- 	fill(card_data["sender_color"]);
- 	textFont(card_data["sender_font"]);
- 	text(sender,
- 			 card_data["sender_left"],
- 			 card_data["sender_top"],
- 			 card_data["sender_box"],
- 			 card_data["sender_height"]);
-}
-
 function getTemplateData() {
 	$.getJSON('/template-data.json', function() {})
   .done(function(fetched_data) {
