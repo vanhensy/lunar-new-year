@@ -7,15 +7,9 @@ jQuery(document).ready(function($){
 	// Handle buttons click
 
 	$("#preview-button").click(function() {
-			if (template == 1 || template == 2) {
-				sender   = "Người gửi: " + $("#content-form-left .content-sender").val();
-				receiver = "Gửi đến: " + $("#content-form-left .content-receiver").val();
-				message  = $("#content-form-left .content-message").val()
-			} else {
-				sender   = "Người gửi: " + $("#content-form-right .content-sender").val();
-				receiver = "Gửi đến: " + $("#content-form-right .content-receiver").val();
-				message  = $("#content-form-right .content-message").val()
-			}
+			sender   = "Người gửi: " + $("#content-form-left .content-sender").val();
+			receiver = "Gửi đến: " + $("#content-form-left .content-receiver").val();
+			message  = $("#content-form-left .content-message").val()
 			toggleState(true);
 	    redraw();
 		});
@@ -26,14 +20,8 @@ jQuery(document).ready(function($){
 		});
 		$("#send-button").click(function() {
 			data = document.getElementById("card-canvas").toDataURL();
-
-			if (template == 1 || template == 2) {
-				$("#content-form-left .image-url-input").val(data);
-				$("#content-form-left").submit();
-			} else {
-				$("#content-form-right .image-url-input").val(data);
-				$("#content-form-right").submit();
-			}
+			$("#content-form-left .image-url-input").val(data);
+			$("#content-form-left").submit();
 		});
 
 
@@ -72,7 +60,7 @@ jQuery(document).ready(function($){
 		templates_path = []
 
 		<% 6.times do |index| %>
-			templates_path.push("<%= asset_path("card-#{index+1}") %>")
+			templates_path.push("<%= asset_path("card-#{index+1}.png") %>")
 		<% end %>
 
 		// Update canvas when card has been click
@@ -91,14 +79,6 @@ jQuery(document).ready(function($){
 			$(this).addClass("active");
 			template = $(this).data("template");
 
-			if (template == 1 || template == 2) {
-				$("#content-form-right").hide()
-				$("#content-form-left").show()
-			} else {
-				$("#content-form-left").hide()
-				$("#content-form-right").show()
-			}
-
 			$.each(templates_path, function(index, value) {
 				if (template == index + 1) {
 					bg_image = loadImage(value);
@@ -112,11 +92,7 @@ jQuery(document).ready(function($){
 				$("#content-form-left, #content-form-right, #preview-button").hide();
 				$("#back-button, #send-button").show();
 			} else {
-				if (template == 1 || template == 2) {
-					$("#content-form-left, #preview-button").show();
-				} else {
-					$("#content-form-right, #preview-button").show();
-				}
+				$("#content-form-left, #preview-button").show();
 				$("#back-button, #send-button").hide();
 			}
 		}
@@ -130,7 +106,7 @@ template = 1 ;
 
 function setup() {
 	canvas 	 = createCanvas(720, 400);
-  bg_image = loadImage('<%= asset_path "card-1.gif" %>');
+  bg_image = loadImage('<%= asset_path "card-1.png" %>');
   canvas.id("card-canvas");
   canvas.class("tm-deep-shadow");
   canvas.parent('canvas-container');

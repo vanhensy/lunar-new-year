@@ -6,54 +6,14 @@
 					<div class="ui six cards">
 						<% @desktop_templates.each_with_index do |template, index| %>
 							<div class="fluid card tm-deep-shadow <%= "active" if index == 0 %>" data-template="<%= index + 1 %>">
-								<%= image_tag "#{template}.gif" %>
+								<%= image_tag "#{template}.png" %>
 							</div>
 						<% end %>
 					</div>
 				</div>
 				<div id="canvas-container" class="tm-deep-shadow">
+					<%= render 'homes/form' %>
 				</div>
-				<%= form_tag cards_path,
-										 class:"ui small form",
-										 id:"content-form-left",
-										 method:"post" do %>
-				  <div class="two fields">
-						<div class="field">
-					    <label>Người nhận:</label>
-					    <input type="text" name="card[receiver]" class="content-receiver">
-					  </div>
-					  <div class="field">
-					    <label>Người gửi:</label>
-					    <input type="text" name="card[sender]" class="content-sender">
-					  </div>
-					</div>
-				  <div class="field">
-				    <label>Lời chúc của bạn:</label>
-				    <textarea rows="6" name="card[message]" class="content-message"></textarea>
-				  </div>
-				  <input type="hidden" name="card[image_url]" class="image-url-input">
-				  <input type="hidden" name="card[template_id]" class="template-id">
-				<% end %>
-				<%= form_tag cards_path,
-										 class:"ui small form",
-										 id:"content-form-right",
-										 style: "display:none",
-										 method:"post" do %>
-					<div class="ui fluid field">
-				    <label>Người nhận:</label>
-				    <input type="text" name="card[receiver]" class="content-receiver">
-				  </div>
-				  <div class="field">
-				    <label>Lời chúc của bạn:</label>
-				    <textarea rows="6" name="card[message]" class="content-message"></textarea>
-				  </div>
-				  <div class="field">
-				    <label>Người gửi:</label>
-				    <input type="text" name="card[sender]" class="content-sender">
-				  </div>
-				  <input type="hidden" name="card[image_url]" class="image-url-input">
-				  <input type="hidden" name="card[template_id]" class="template-id">
-				<% end %>
 				<button class="ui red tm-deep-shadow button tm-button"
 								id="preview-button">
 					Xem trước

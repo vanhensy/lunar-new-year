@@ -1,0 +1,21 @@
+<%= form_tag cards_path,
+						 class:"ui mini form",
+						 id:"content-form-left",
+						 method:"post" do %>
+  <div class="two fields">
+		<div class="field">
+	    <label>Người nhận:</label>
+	    <input type="text" name="card[receiver]" class="content-receiver">
+	  </div>
+	  <div class="field">
+	    <label>Người gửi:</label>
+	    <input type="text" name="card[sender]" class="content-sender">
+	  </div>
+	</div>
+  <div class="field">
+    <label>Lời chúc của bạn:</label>
+    <textarea rows="4" name="card[message]" class="content-message"></textarea>
+  </div>
+  <input type="hidden" name="card[image_url]" class="image-url-input">
+  <input type="hidden" name="card[template_id]" class="template-id">
+<% end %>
