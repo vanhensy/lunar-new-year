@@ -5,20 +5,11 @@ body {
 }
 
 #main_container {
-	max-width: 720px!important;
-}
-
-
-#preview-button {
-	margin-top: 120px!important;
-}
-
-#action-buttons {
-	margin-top: 40px!important;
-}
-
-#download-button {
-	margin-top: 40px;
+	max-width: 750px!important;
+	.wrapper {
+		background: #FFFFFF;
+		border-radius: 1em;
+	}
 }
 
 #card-container,
@@ -30,10 +21,18 @@ body {
 	position: relative;
 	#card-canvas {
 		border-radius: 10px;
+		border: 1px solid #ecf0f1;
 		position: absolute;
 		top: 0;
 		left: 0;
 		z-index: 1;
+	}
+}
+
+#card-container {
+	img {
+		border-radius: 10px;
+		border: 1px solid #ecf0f1;
 	}
 }
 
@@ -47,7 +46,7 @@ body {
 		cursor: pointer;
 	}
 	.active {
-		border: 2px solid yellow;
+		border: 2px solid #d35400;
 	}
 }
 
@@ -61,45 +60,22 @@ body {
 	transform: translateX(-50%) translateY(-50%);
 }
 
-#content-form-right {
-		position: absolute;
-		margin-top: -350px;
-		text-align: left!important;
-		width: 275px;
-		margin-left:360px;
-}
-
-#content-form-left,
-#content-form-right {
-	input,
+#content-form-left {
 	textarea {
-		background: transparent!important;
-		border-style: dashed;
-		border-color: #2c3e50;
 		resize: none;
 		color: #2c3e50;
 	}
 	input {
-		border: 1px solid #95a5a6;
+		border-style: solid;
 		border-width: 0 0 1px 0;
 		border-radius: 0;
+		border-color: #bdc3c7!important;
+		padding-left: 0;
 	}
 	label {
 		font-family: 'Proxima_regular';
 		color: #2c3e50!important;
 		margin-bottom: 0.5em;
-	}
-}
-
-#content-form-right {
-	label {
-		color: #000!important;
-	}
-	input,
-	textarea {
-		border-color: #000;
-		resize: none;
-		color: #000;
 	}
 }
 

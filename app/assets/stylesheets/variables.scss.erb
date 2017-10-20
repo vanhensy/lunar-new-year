@@ -1,5 +1,5 @@
 //---------------------
-// Fonts 
+// Fonts
 //---------------------
 
 @font-face {
@@ -11,45 +11,71 @@
     src: url('<%= asset_path('ProximaNovaSoft-Bold.otf') %>');
 }
 
+@font-face {
+  font-family: 'Proxima';
+  src: url('<%= asset_path('ProximaNovaSoft-Regular.otf') %>');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Proxima';
+  src: url('<%= asset_path('ProximaNovaSoft-Bold.otf') %>');
+  font-weight: 600;
+}
+$fontProxima: 'Proxima';
 $fontRegular: 'Proxima_regular'!important;
 $fontBold: 'Proxima_bold'!important;
 
 .themify {
-  font-family: 'themify';
+  font-family: 'themify'!important;
 }
 .material {
   font-family: 'Material Design Icons';
 }
+.simpleline {
+  font-family: 'simple-line-icons';
+}
 
 //---------------------
-// Colors 
+// Colors
 //---------------------
 
-$primaryColorBlue: #22B2DA;
+$primaryColorLight:       #EBF7FD;
+$primaryColorBlueLight:   #A5DEF1;
+$primaryColorBlue:        #22B2DA;
+$primaryColorDark:        #36506C;
+$primaryColorDarker:      #233142;
+
+$secondaryColorBlue:      #3DAAEE;
+$secondaryColorDark:      #02667F;
+$secondaryColorDarker:    #313639;
+$secondaryColorGrey:      #8F999F;
+$secondaryColorGreyLight: #CCD6DC;
+
 
 //---------------------
-// Sizes 
+// Sizes
 //---------------------
 
 $spaceTypes: ('m': "margin", 'p': "padding");
 
 $spaceSizes: (
-	'none':   0,
-	'mini':   0.5em,
-	'small':  1em,
-	'medium': 2em,
-	'big':    3em
+  'none':   0,
+  'mini':   0.5em,
+  'small':  1em,
+  'medium': 2em,
+  'big':    3em
 );
 
 //---------------------
-// Properties 
+// Properties
 //---------------------
 
 $ip: !important;
 
 
 @mixin i_before($content, $font) {
-	display: inline-block;
+  display: inline-block;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
@@ -71,3 +97,67 @@ $ip: !important;
     border-color: $primaryColorBlue$ip;
   }
 }
+
+@mixin auto_middle_align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+// Note: Deprecated $screen-xs and $screen-phone as of v3.0.1
+$screen-xs:                  320px !default;
+$screen-xs-min:              $screen-xs !default;
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+// Note: Deprecated $screen-sm and $screen-tablet as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+// Note: Deprecated $screen-md and $screen-desktop as of v3.0.1
+$screen-md:                  1024px !default;
+$screen-md-min:              $screen-md !default;
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+// Note: Deprecated $screen-lg and $screen-lg-desktop as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// Extra Large screen / wide desktop
+$screen-xl:                  1400px !default;
+$screen-xl-min:              $screen-xl !default;
+$screen-xl-desktop:          $screen-xl-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xxs-max:             ($screen-xs-min - 1) !default;
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+$screen-lg-max:              ($screen-xl-min - 1) !default;
+
+// Media queries
+$xSmall: "(min-width: #{$screen-xs-min})";
+$small: "(min-width: #{$screen-sm-min})";
+$medium: "(min-width: #{$screen-md-min})";
+$large: "(min-width: #{$screen-lg-min})";
+$xLarge: "(min-width: #{$screen-xl-min})";
+$smallDown: "(max-width: #{$screen-sm-max})";
+
+// Media queries by name
+$mobileOnly: "(max-width: #{$screen-xs-max})"; // < 768
+$tabletOnly: "(min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})"; // 768 ? width < 1024
+
+$tabletDown: "(max-width: #{$screen-sm-max})"; // < 1024
+$tabletUp: "(min-width: #{$screen-sm-min})"; // ? 768
+$desktopUp: "(min-width: #{$screen-md-min})"; // ? 1024
+$desktopLargeUp: "(min-width: #{$screen-lg-min})"; // ? 1200
+$desktopXLargeUp: "(min-width: #{$screen-xl-min})"; // ? 1400

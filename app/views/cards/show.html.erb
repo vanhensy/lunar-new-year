@@ -1,25 +1,30 @@
 <div class="ui container p-none--sides" id="main_container">
-	<div class="ui center aligned middle aligned stackable grid full-height">
-		<div class="sixteen wide column">
-				<div id="card-container" class="tm-deep-shadow">
+	<div class="ui right aligned middle aligned stackable grid full-height">
+		<div class="sixteen wide column wrapper tm-deep-shadow p-medium--all">
+				<div id="card-container">
 					<%= image_tag @card.imgur, class:"ui image" %>
 				</div>
-				<button class="ui tm-blue icon button" 
+				<a  href="/"
+						class="ui teal icon button m-medium--top left floated">
+					<i class="plus icon"></i>
+					Tạo thêm thiệp
+				</a>
+				<!-- <button class="ui blue icon button  m-medium--top"
 								id="fb-send-button">
 					<i class="facebook icon"></i>
 					Gửi qua Messenger
-				</button>
-				<button class="ui blue icon button" 
+				</button> -->
+				<button class="ui blue icon button  m-medium--top"
 								id="fb-share-button">
 					<i class="facebook icon"></i>
 					Chia sẻ qua Facebook
 				</button>
 				<a  href="<%= @card.imgur %>"
-						class="ui icon button" 
+						class="ui icon button  m-medium--top"
 						id="download-button"
-						download> 
+						download>
 					<i class="download icon"></i>
-					Download
+					Lưu về máy
 				</a>
 		</div>
 	</div>
